@@ -16,6 +16,7 @@ Radio由三部分构成：
 		 2   dbg.o        10
 说明：
 Channel 0是用来播送文件信息的，包括文件名，文件大小和校验和(CRC32)
+Channel 1和2用来播送实际的文件内容。
 
 3. 运行在U-boot上能够接受多播的patch代码——radioreceiver
 #待定
