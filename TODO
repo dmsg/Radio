@@ -2,14 +2,30 @@
 # 这个文件包含当前需要完成的任务，已完成的任务以#注释
 # 新任务视优先级，添加到特定的位置
 
--描述：更新设计文档，要包含maker和player完整的设计
- 负责人：Serval
- 起始日期：13-5-3
+#-描述：更新设计文档，要包含maker和player完整的设计
+# 负责人：Serval
+# 起始日期：13-5-3
+# Done: 13-5-2
 
--编写一个可以工作的CRC32的库
- 负责人：John
- 起始日期：13-5-1
+#-编写一个可以工作的CRC32的库
+# 负责人：John
+# 起始日期：13-5-1
+# Done: 13-5-3
 
 -完善Makefile
  负责人：Serval
  起始日期:13-5-1
+
+-Build Player
+ Owner: John
+ Begin: 13-5-3
+
+-Build Maker
+ Owner: Serval
+ Begin: 13-5-2
+
+-Build Receiver
+ Owner: Serval
+ Begin: ------
+
+

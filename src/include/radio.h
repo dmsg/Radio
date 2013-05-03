@@ -13,7 +13,7 @@ typedef struct radio_header {
 
 /* radio_unit is the unit which will be sent by radio_player,
 ** index begins with 0. */
-typedef radio_unit{
+typedef struct radio_unit{
 	int index;
 	char data[1024];
 }radio_unit;
@@ -29,4 +29,6 @@ typedef struct radio_config{
 }radio_config;
 
 int get_file_size(char *fname);
+
 #undef _H_RADIO_H
+#endif

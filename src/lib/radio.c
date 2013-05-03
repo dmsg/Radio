@@ -12,5 +12,5 @@ int get_file_size(char *fname)
 	n = ftell(fp);
 
 	fclose(fp);
-	return n
+	return n;
 }
