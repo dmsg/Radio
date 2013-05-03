@@ -7,13 +7,13 @@ Radio由三部分构成：
 1. 打包程序——radiomaker
 打包程序用来把一个普通的Firmware做成一个Radio支持的文件。它所做的事为Firmware加20字节头部信息，格式如下：
 |----16 bytes file name----|
-|2 bytes size|2 bytes CRC32|
+|4 bytes size|4 bytes CRC32|
 |------Firmware Data-------|
 
 typedef struct radio_header {
 	char fname[16];
-	short fsize;
-	short crc32;
+	int fsize;
+	int crc32;
 }radio_header;
 
 2. 将生成文件多播出去的部分--radioplayer
@@ -53,3 +53,4 @@ a. 首先从224.0.0.1:1234的位置读取文件的大小和CRC32信息
 b. 从224.0.0.1:1235读取文件内容
 c. 将文件内容排序整理，拷贝到U-boot的boot位置
 d. 跳转到该位置，启动系统！
+

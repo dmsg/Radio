@@ -81,7 +81,7 @@ unsigned int get_file_crc(char *file)
 	}
 
 	while ((rdlen = read(fd, crcbuf, 4096)) > 0) {
-		crc = get_crc16(crc, crcbuf, rdlen);
+		crc = get_crc32(crc, crcbuf, rdlen);
 	}
 
 	close(fd);

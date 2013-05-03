@@ -7,8 +7,8 @@
 ** to the front of a given file. */
 typedef struct radio_header {
 	char fname[16];
-	short fsize;
-	short crc32;
+	int fsize;
+	int crc32;
 }radio_header;
 
 /* radio_unit is the unit which will be sent by radio_player,
