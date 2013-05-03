@@ -11,7 +11,7 @@ void usage(void)
 
 int main(int argc, char **argv)
 {
-	int crc = 0;
+	int crc = 0, bytes_read;
 	char buf[BUFSIZ], rad_file[16];
 	radio_header rad_hdr;
 	FILE *rad, *img;
@@ -31,14 +31,14 @@ int main(int argc, char **argv)
 
 	sprintf(rad_file, "%s.rad", rad_hdr.fname);
 
-	rad = fopen(rad_file, "w+");
+	rad = fopen(rad_file, "wb+");
 	img = fopen(rad_hdr.fname, "rb");
 
 	fwrite(&rad_hdr, sizeof(radio_header), 1, rad);
-	while(!feof(img)) {
+	while((bytes_read = fread(buf, 1, BUFSIZ, img)) > 0) {
+		fwrite(buf, bytes_read, 1, rad);
 		memset(buf, 0, BUFSIZ);
-		int n = fread(buf, BUFSIZ, 1, img);
-		fwrite(buf, n, 1, rad);
+		printf("%d wrote.\n", bytes_read);
 	}
 
 	fclose(img);
