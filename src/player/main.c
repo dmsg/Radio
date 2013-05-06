@@ -5,7 +5,7 @@ char *program = NULL;
 void usage(void)
 {
 	printf("Usage:\n"
-		"\t%s config\n", program);
+		"  %s config\n", program);
 }		
 
 int main(int argc, char **argv)
