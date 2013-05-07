@@ -1,7 +1,7 @@
 #ifndef _H_RADIO_H
 #define _H_RADIO_H
 
-#include "../lib/crc32.h"
+#include "crc32.h"
 
 /* radio_header is the header which will be added 
 ** to the front of a given file. */
