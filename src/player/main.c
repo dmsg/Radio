@@ -58,6 +58,8 @@ int main(int argc, char **argv)
 		}
 	}	
 
+	printf("ip=%s\n",inet_ntoa(radio_config_arr[1].ip));
+
 	fclose(config_pf);
 
 	file_conaddr.sin_addr.s_addr=radio_config_arr[1].ip;
@@ -92,6 +94,7 @@ int main(int argc, char **argv)
 		for(i=0;i<count;i++)
 		{
 			read(file_fd,file_unit.data,1024);
+			printf("bu=%s\n",file_unit.data);
 			file_unit.index=i;
 			sendto(file_sockfd, &file_unit, sizeof(file_unit), 0, (struct sockaddr *)&file_conaddr, sizeof(file_conaddr));
 			bzero(&file_unit, sizeof(file_unit));
