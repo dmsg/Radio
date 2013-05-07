@@ -12,9 +12,10 @@
 # 起始日期：13-5-1
 # Done: 13-5-3
 
--完善Makefile
- 负责人：Serval
- 起始日期:13-5-1
+#-完善Makefile
+# 负责人：Serval
+# 起始日期:13-5-1
+# Done: 13-5-7
 
 -Build Player
  Owner: John

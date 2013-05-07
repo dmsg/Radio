@@ -1,13 +1,32 @@
 # Makefile of Radio
+CC = cc
+CP = cp
+RM = rm
 
-maker:
-	echo maker
+CFLAGS = -lm \
+	-I ./include \
+	-I ./lib
 
-player:
-	echo player
+RADIO_VPATH = . \
+	include \
+	lib \
+	maker \
+	player
+	
+.PHONY: all radiomaker radioplayer clean
 
-all:maker player
+radiomaker: radiomaker.o crc32.o radio.o 
+	$(CC) $(CFLAGS) -o $@ $^
+radioplayer: main.o crc32.o radio.o
+	$(CC) $(CFLAGS) -o $@ $^
+all: radiomaker radioplayer
 	echo "build all"
-
 clean:
-	echo clean
+	$(RM) -rvf *.exe *.o *.out
+
+%.o: %.c
+	$(CC) $(CFLAGS) -c $<
+
+vpath %.h $(RADIO_VPATH)
+vpath %.c $(RADIO_VPATH)
+
