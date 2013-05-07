@@ -96,7 +96,7 @@ int main(int argc, char **argv)
 			sendto(file_sockfd, &file_unit, sizeof(file_unit), 0, (struct sockaddr *)&file_conaddr, sizeof(file_conaddr));
 			bzero(&file_unit, sizeof(file_unit));
 			sendto(header_sockfd,&file_header,sizeof(file_header),0,(struct sockaddr *)&header_conaddr,sizeof(header_conaddr));
-			
+			sleep(1);
 		}
 		
 	}
