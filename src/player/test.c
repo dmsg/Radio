@@ -5,7 +5,7 @@
 #include<string.h>
 #include<netinet/in.h>
 #define MYIP "192.168.9.150"
-#define MULIP "224.0.0.0"
+#define MULIP "224.0.0.4"
 int main()
 {
 	int sockfd;
