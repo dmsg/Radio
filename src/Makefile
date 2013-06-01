@@ -20,7 +20,7 @@ radiomaker: radiomaker.o crc32.o radio.o
 radioplayer: main.o crc32.o radio.o
 	$(CC) $(CFLAGS) -o $@ $^
 all: radiomaker radioplayer
-	echo "build all"
+	@echo "build all"
 clean:
 	$(RM) -rvf *.exe *.o *.out
 

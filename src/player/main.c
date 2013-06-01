@@ -1,15 +1,17 @@
 #include <stdio.h>
 #include <string.h>
+#include <libgen.h>
+#include <sys/types.h>
+#include <sys/socket.h>
+#include <netinet/in.h>
 #include "radio.h"
-#include<sys/types.h>
-#include<sys/socket.h>
-#include<netinet/in.h>
+
 char *program = NULL;
 
 void usage(void)
 {
 	printf("Usage:\n"
-		"  %s config\n", program);
+		"  %s config\n", basename(program));
 }		
 
 int main(int argc, char **argv)

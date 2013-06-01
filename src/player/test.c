@@ -1,12 +1,15 @@
-#include<stdio.h>
-#include "../include/radio.h"
- #include <sys/types.h>     
-        #include <sys/socket.h>
-#include<string.h>
-#include<netinet/in.h>
+#include <stdio.h>
+#include <sys/types.h>     
+#include <sys/socket.h>
+#include <string.h>
+#include <netinet/in.h>
+#include <arpa/inet.h>
+#include "radio.h"
+
 #define MYIP "192.168.9.150"
 #define MULIP "224.0.0.4"
-int main()
+
+int main(void)
 {
 	int sockfd;
 	socklen_t len;
@@ -33,13 +36,12 @@ int main()
 
 	setsockopt(sockfd,IPPROTO_IP,IP_ADD_MEMBERSHIP,&mreq,sizeof(mreq));
 		
-	
-
 	while(1)
 	{
 		recvfrom(sockfd,(void *)&buf,sizeof(buf),0,(struct sockaddr *)&conaddr,&len);
 		printf("buf=%s\n",buf.data);
 		sleep(1);
-		}
+	}
+
 	return 0;
 }
