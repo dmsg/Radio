@@ -1,8 +1,6 @@
 #include <common.h>
 #include <command.h>
 
-#if (CONFIG_COMMANDS & CFG_CMD_RADIO)
-
 int do_radio (cmd_tbl_t *cmdtp, int flag, int argc, char *argv[])
 {
 	printf("Radio...\n");
@@ -10,9 +8,8 @@ int do_radio (cmd_tbl_t *cmdtp, int flag, int argc, char *argv[])
 }
 
 U_BOOT_CMD(
-	radioinit,	1,	0,	do_radio,
-	"radioinit - initialize radio\n",
+	radio,	1,	0,	do_radio,
+	"radio - Do multicast radio\n",
 	NULL
 );
 
-#endif
