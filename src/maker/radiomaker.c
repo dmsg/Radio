@@ -1,3 +1,6 @@
+/*
+** Author: Serval Lee
+*/
 #include <stdio.h>
 #include "radio.h"
 
@@ -32,7 +35,11 @@ int main(int argc, char **argv)
 	sprintf(rad_file, "%s.rad", rad_hdr.fname);
 
 	rad = fopen(rad_file, "wb+");
+	if (rad == NULL)
+		goto err;
 	img = fopen(rad_hdr.fname, "rb");
+	if (img == NULL)
+		goto err;
 
 	fwrite(&rad_hdr, sizeof(radio_header), 1, rad);
 	while((bytes_read = fread(buf, 1, BUFSIZ, img)) > 0) {
@@ -44,5 +51,8 @@ int main(int argc, char **argv)
 	fclose(img);
 	fclose(rad);
 	return 0;
+err:
+	perror("");
+	return 1;
 }
 
